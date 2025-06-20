@@ -41,11 +41,20 @@ MinimizeButton({
 -- TAB 1: Script Farm
 local Tab1 = MakeTab({ Name = "Script Farm" })
 AddButton(Tab1, {
+    Name = "thanhtaidz",
+    Callback = function()
+        local Settings = {
+            JoinTeam = "Pirates",
+            Translator = true
+        }
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))(Settings)
+    end
+})
+AddButton(Tab1, {
     Name = "Menu Farm lever",
+    Description = "00",
     Callback = function()
-        Description = "00",
-    Callback = function()
-       loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))()
     end
 })
 
@@ -182,4 +191,20 @@ AddButton(Tab3, {
     end
 })
 
+-- TAB 4: Thông Tin 
+local Tab4 = MakeTab({ Name = "Thông tin Liên Hệ" })
+AddButton(Tab4, {
+    Name = "Discord",
+    Callback = function()
+       setclipboard("https://discord.gg/sA4uezPKF")
+    end
+})
+
+
+AddButton(Tab4, {
+    Name = "Facebook: Thanh Tàii(ltt)",
+    Callback = function()
+      setclipboard("https://www.facebook.com/thanh.taii.838328")
+    end
+})
 
