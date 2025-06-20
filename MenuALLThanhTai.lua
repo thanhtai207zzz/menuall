@@ -43,11 +43,9 @@ local Tab1 = MakeTab({ Name = "Script Farm" })
 AddButton(Tab1, {
     Name = "Menu Farm lever",
     Callback = function()
-        local Settings = {
-            JoinTeam = "Pirates",
-            Translator = true
-        }
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))(Settings)
+        Description = "00",
+    Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))()
     end
 })
 
