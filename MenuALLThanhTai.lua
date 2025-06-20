@@ -30,7 +30,7 @@ local Window = MakeWindow({
 
 -- Nút minimize
 MinimizeButton({
-    Image = "rbxassetid://83190276951914",
+    Image = "rbxassetid://12550760234",
     Size = {60, 60},
     Color = Color3.fromRGB(10, 10, 10),
     Corner = true,
