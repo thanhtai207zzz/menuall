@@ -30,7 +30,7 @@ local Window = MakeWindow({
 
 -- Nút minimize
 MinimizeButton({
-    Image = "rbxassetid://12550760234",
+    Image = "rbxassetid://83190276951914",
     Size = {60, 60},
     Color = Color3.fromRGB(10, 10, 10),
     Corner = true,
@@ -194,7 +194,7 @@ AddButton(Tab3, {
 -- TAB 4: Thông Tin 
 local Tab4 = MakeTab({ Name = "Thông tin Liên Hệ" })
 AddButton(Tab4, {
-    Name = "Discord",
+    Name = "Discord: https://discord.gg/sA4uezPKF",
     Callback = function()
        setclipboard("https://discord.gg/sA4uezPKF")
     end
