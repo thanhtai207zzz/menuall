@@ -47,7 +47,7 @@ AddButton(Tab1, {
             JoinTeam = "Pirates",
             Translator = true
         }
-         loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/main/Source.lua"))(Settings)
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))(Settings)
     end
 })
 
