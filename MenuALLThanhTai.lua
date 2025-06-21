@@ -41,7 +41,7 @@ MinimizeButton({
 -- TAB 1: Script Farm
 local Tab1 = MakeTab({ Name = "Script Farm" })
 AddButton(Tab1, {
-    Name = "CHÀO MỪNG ĐẾN BẠN ĐẾN VỚI MENU THANHTÀI CHÚC BẠN CHƠI VUI VẼ",
+    Name = "CHÀO MỪNG ĐẾN BẠN ĐẾN VỚI MENU THANHTÀI",
     Callback = function()
         local Settings = {
             JoinTeam = "Pirates",
