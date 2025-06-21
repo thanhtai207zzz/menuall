@@ -311,6 +311,22 @@ AddToggle(Tab4, {
 -- TAB 5: speed
 local Tab5 = MakeTab({ Name = "Speed / Ép Xung Hz" })
 
+-- FPS Boost Preset
+AddButton(Tab5, {
+    Name = "⚙️Chế độ 60Hz⚙️",
+    Callback = function()
+        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.Efficient
+    end
+})
+
+AddButton(Tab5, {
+    Name = "⚙️Chế độ 120Hz⚙️",
+    Callback = function()
+        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.On
+    end
+})
+
+
 -- Speed Tab5
 local currentSpeed = 16
 local speedEnabled = false
@@ -347,21 +363,6 @@ AddButton(Tab5, {
         local humanoid = Character:FindFirstChildOfClass("Humanoid")
         if humanoid then humanoid.WalkSpeed = speedEnabled and 16 or 16 end
         if slider and slider.Object then slider:Set(16) end
-    end
-})
-
--- FPS Boost Preset
-AddButton(Tab5, {
-    Name = "⚙️Chế độ 60Hz⚙️",
-    Callback = function()
-        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.Efficient
-    end
-})
-
-AddButton(Tab5, {
-    Name = "⚙️Chế độ 120Hz⚙️",
-    Callback = function()
-        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.On
     end
 })
 
