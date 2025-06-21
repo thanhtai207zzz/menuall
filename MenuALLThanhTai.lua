@@ -41,7 +41,7 @@ MinimizeButton({
 -- TAB 1: Script Farm
 local Tab1 = MakeTab({ Name = "Script Farm" })
 AddButton(Tab1, {
-    Name = "thanhtaidz",
+    Name = "CHÀO MỪNG ĐẾN BẠN ĐẾN VỚI MENU THANHTÀI CHÚC BẠN CHƠI VUI VẼ",
     Callback = function()
         local Settings = {
             JoinTeam = "Pirates",
@@ -95,7 +95,7 @@ AddButton(Tab2, {
 })
 
 -- TAB 3: PvP
-local Tab3 = MakeTab({ Name = "PVP VIP" })
+local Tab3 = MakeTab({ Name = "PVP / ESP" })
 
 -- Hiện máu kẻ địch
 AddToggle(Tab3, {
