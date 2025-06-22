@@ -51,8 +51,8 @@ AddButton(Tab1, {
     end
 })
 
-local Tab6 = MakeTab({ Name = "Thông tin Liên Hệ" })
-AddButton(Tab6, {
+
+AddButton(Tab1, {
     Name = "Discord: https://discord.gg/sA4uezPKF",
     Callback = function()
        setclipboard("https://discord.gg/sA4uezPKF")
@@ -60,7 +60,7 @@ AddButton(Tab6, {
 })
 
 
-AddButton(Tab6, {
+AddButton(Tab1, {
     Name = "Facebook: Thanh Tàii(ltt)",
     Callback = function()
       setclipboard("https://www.facebook.com/thanh.taii.838328")
@@ -384,4 +384,4 @@ AddButton(Tab5, {
 })
 
 
--- TAB 6: Thông Tin 
+
