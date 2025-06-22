@@ -158,22 +158,51 @@ AddToggle(Tab3, {
     end
 })
 
+-- Aim nhẹ
+AddToggle(Tab3, {
+    Name = "Aim Vào Kẻ Địch",
+    Callback = function(state)
+        _G.aimAssist = state
+        if state then
+            task.spawn(function()
+                while _G.aimAssist do
+                    local nearest = nil
+                    local shortest = math.huge
+                    for _, player in ipairs(Players:GetPlayers()) do
+                        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+                            local dist = (Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+                            if dist < shortest and dist < 25 then
+                                shortest = dist
+                                nearest = player.Character.HumanoidRootPart
+                            end
+                        end
+                    end
+                    if nearest then
+                        local myHRP = Character and Character:FindFirstChild("HumanoidRootPart")
+                        if myHRP then
+                            myHRP.CFrame = CFrame.new(myHRP.Position, Vector3.new(nearest.Position.X, myHRP.Position.Y, nearest.Position.Z))
+                        end
+                    end
+                    wait(0.15)
+                end
+            end)
+        end
+    end
+})
 
 
 -- Đánh nhanh thật sự
 AddToggle(Tab3, {
     Name = "Đánh Nhanh",
     Callback = function(state)
-        _G.realFastAttack = state
+        _G.fastAttackFixed = state
         if state then
             task.spawn(function()
-                while _G.realFastAttack do
-                    local tool = Character:FindFirstChildOfClass("Tool")
+                while _G.fastAttackFixed do
+                    local tool = Character and Character:FindFirstChildOfClass("Tool")
                     if tool then
-                        for i = 1, 5 do
-                            pcall(function()
-                                tool:Activate()
-                            end)
+                        for _ = 1, 8 do
+                            pcall(function() tool:Activate() end)
                         end
                     end
                     wait(0.05)
@@ -380,6 +409,54 @@ AddButton(Tab5, {
         local humanoid = Character:FindFirstChildOfClass("Humanoid")
         if humanoid then humanoid.WalkSpeed = speedEnabled and 16 or 16 end
         if slider and slider.Object then slider:Set(16) end
+    end
+})
+
+
+-- Speed bằng BodyVelocity
+local currentSpeed = 50
+local speedBV = nil
+local speedEnabled = false
+
+AddToggle(Tab5, {
+    Name = "Speed An Toàn",
+    Callback = function(state)
+        speedEnabled = state
+        if state then
+            local hrp = Character:WaitForChild("HumanoidRootPart")
+            if not speedBV then
+                speedBV = Instance.new("BodyVelocity")
+                speedBV.MaxForce = Vector3.new(1e5, 0, 1e5)
+                speedBV.Velocity = Vector3.zero
+                speedBV.P = 10000
+                speedBV.Name = "SafeSpeedBV"
+                speedBV.Parent = hrp
+            end
+
+            RunService.Stepped:Connect(function()
+                if speedEnabled and Character and Character:FindFirstChildOfClass("Humanoid") then
+                    local moveDir = Character.Humanoid.MoveDirection
+                    speedBV.Velocity = moveDir * currentSpeed
+                elseif speedBV then
+                    speedBV.Velocity = Vector3.zero
+                end
+            end)
+        else
+            if speedBV then
+                speedBV:Destroy()
+                speedBV = nil
+            end
+        end
+    end
+})
+
+AddSlider(Tab5, {
+    Name = "Tùy chỉnh tốc độ ",
+    Min = 10,
+    Max = 100,
+    Default = 50,
+    Callback = function(val)
+        currentSpeed = val
     end
 })
 
