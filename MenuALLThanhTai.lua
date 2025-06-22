@@ -367,8 +367,6 @@ AddButton(Tab5, {
 })
 
 
-
-
 -- TAB 6: Thông Tin 
 local Tab6 = MakeTab({ Name = "Thông tin Liên Hệ" })
 AddButton(Tab6, {
