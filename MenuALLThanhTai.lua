@@ -357,6 +357,24 @@ AddToggle(Tab4, {
 -- TAB 5: speed
 local Tab5 = MakeTab({ Name = "Speed / Ép Xung Hz" })
 
+
+-- FPS Boost Preset
+AddButton(Tab5, {
+    Name = "⚙️Chế độ 60Hz⚙️",
+    Callback = function()
+        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.Efficient
+    end
+})
+
+AddButton(Tab5, {
+    Name = "⚙️Chế độ 120Hz⚙️",
+    Callback = function()
+        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.On
+    end
+})
+
+
+
 -- Speed An Toàn
 local currentSpeed = 50
 local speedBV = nil
@@ -405,60 +423,10 @@ AddSlider(Tab5, {
 })
 
 
--- FPS Boost Preset
-AddButton(Tab5, {
-    Name = "⚙️Chế độ 60Hz⚙️",
-    Callback = function()
-        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.Efficient
-    end
-})
-
-AddButton(Tab5, {
-    Name = "⚙️Chế độ 120Hz⚙️",
-    Callback = function()
-        settings().Rendering.FrameRateManager = Enum.FrameRateManagerMode.On
-    end
-})
 
 
--- Speed Tab5
-local currentSpeed = 16
-local speedEnabled = false
-local slider
 
-AddToggle(Tab5, {
-    Name = "Bật Chay Nhanh",
-    Callback = function(state)
-        speedEnabled = state
-        local humanoid = Character:FindFirstChildOfClass("Humanoid")
-        if humanoid then humanoid.WalkSpeed = state and currentSpeed or 16 end
-        if slider and slider.Object then slider.Object.Visible = state end
-    end
-})
 
-slider = AddSlider(Tab5, {
-    Name = "Tùy Chỉnh Speed",
-    Min = 16,
-    Max = 200,
-    Default = 16,
-    Callback = function(value)
-        currentSpeed = value
-        local humanoid = Character:FindFirstChildOfClass("Humanoid")
-        if humanoid and speedEnabled then humanoid.WalkSpeed = value end
-    end
-})
-
-if slider and slider.Object then slider.Object.Visible = false end
-
-AddButton(Tab5, {
-    Name = "Reset Tốc Độ Về 16",
-    Callback = function()
-        currentSpeed = 16
-        local humanoid = Character:FindFirstChildOfClass("Humanoid")
-        if humanoid then humanoid.WalkSpeed = speedEnabled and 16 or 16 end
-        if slider and slider.Object then slider:Set(16) end
-    end
-})
 
 
 
