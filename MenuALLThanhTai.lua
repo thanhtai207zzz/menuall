@@ -357,6 +357,54 @@ AddToggle(Tab4, {
 -- TAB 5: speed
 local Tab5 = MakeTab({ Name = "Speed / Ép Xung Hz" })
 
+-- Speed An Toàn
+local currentSpeed = 50
+local speedBV = nil
+local speedEnabled = false
+
+AddToggle(Tab5, {
+    Name = "Speed An Toàn",
+    Callback = function(state)
+        speedEnabled = state
+        if state then
+            local hrp = Character:WaitForChild("HumanoidRootPart")
+            if not speedBV then
+                speedBV = Instance.new("BodyVelocity")
+                speedBV.MaxForce = Vector3.new(1e5, 0, 1e5)
+                speedBV.Velocity = Vector3.zero
+                speedBV.P = 10000
+                speedBV.Name = "SafeSpeedBV"
+                speedBV.Parent = hrp
+            end
+
+            RunService.Stepped:Connect(function()
+                if speedEnabled and Character and Character:FindFirstChildOfClass("Humanoid") then
+                    local moveDir = Character.Humanoid.MoveDirection
+                    speedBV.Velocity = moveDir * currentSpeed
+                elseif speedBV then
+                    speedBV.Velocity = Vector3.zero
+                end
+            end)
+        else
+            if speedBV then
+                speedBV:Destroy()
+                speedBV = nil
+            end
+        end
+    end
+})
+
+AddSlider(Tab5, {
+    Name = "Tùy chỉnh tốc độ ",
+    Min = 10,
+    Max = 100,
+    Default = 50,
+    Callback = function(val)
+        currentSpeed = val
+    end
+})
+
+
 -- FPS Boost Preset
 AddButton(Tab5, {
     Name = "⚙️Chế độ 60Hz⚙️",
@@ -413,52 +461,7 @@ AddButton(Tab5, {
 })
 
 
--- Speed bằng BodyVelocity
-local currentSpeed = 50
-local speedBV = nil
-local speedEnabled = false
 
-AddToggle(Tab5, {
-    Name = "Speed An Toàn",
-    Callback = function(state)
-        speedEnabled = state
-        if state then
-            local hrp = Character:WaitForChild("HumanoidRootPart")
-            if not speedBV then
-                speedBV = Instance.new("BodyVelocity")
-                speedBV.MaxForce = Vector3.new(1e5, 0, 1e5)
-                speedBV.Velocity = Vector3.zero
-                speedBV.P = 10000
-                speedBV.Name = "SafeSpeedBV"
-                speedBV.Parent = hrp
-            end
-
-            RunService.Stepped:Connect(function()
-                if speedEnabled and Character and Character:FindFirstChildOfClass("Humanoid") then
-                    local moveDir = Character.Humanoid.MoveDirection
-                    speedBV.Velocity = moveDir * currentSpeed
-                elseif speedBV then
-                    speedBV.Velocity = Vector3.zero
-                end
-            end)
-        else
-            if speedBV then
-                speedBV:Destroy()
-                speedBV = nil
-            end
-        end
-    end
-})
-
-AddSlider(Tab5, {
-    Name = "Tùy chỉnh tốc độ ",
-    Min = 10,
-    Max = 100,
-    Default = 50,
-    Callback = function(val)
-        currentSpeed = val
-    end
-})
 
 
 
