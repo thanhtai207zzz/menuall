@@ -50,6 +50,23 @@ AddButton(Tab1, {
         loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))(Settings)
     end
 })
+
+local Tab6 = MakeTab({ Name = "Thông tin Liên Hệ" })
+AddButton(Tab6, {
+    Name = "Discord: https://discord.gg/sA4uezPKF",
+    Callback = function()
+       setclipboard("https://discord.gg/sA4uezPKF")
+    end
+})
+
+
+AddButton(Tab6, {
+    Name = "Facebook: Thanh Tàii(ltt)",
+    Callback = function()
+      setclipboard("https://www.facebook.com/thanh.taii.838328")
+    end
+})
+
 AddButton(Tab1, {
     Name = "Menu Farm lever",
     Description = "00",
@@ -368,18 +385,3 @@ AddButton(Tab5, {
 
 
 -- TAB 6: Thông Tin 
-local Tab6 = MakeTab({ Name = "Thông tin Liên Hệ" })
-AddButton(Tab6, {
-    Name = "Discord: https://discord.gg/sA4uezPKF",
-    Callback = function()
-       setclipboard("https://discord.gg/sA4uezPKF")
-    end
-})
-
-
-AddButton(Tab6, {
-    Name = "Facebook: Thanh Tàii(ltt)",
-    Callback = function()
-      setclipboard("https://www.facebook.com/thanh.taii.838328")
-    end
-})
