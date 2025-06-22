@@ -53,7 +53,7 @@ AddButton(Tab1, {
 
 
 AddButton(Tab1, {
-    Name = "Discord: https://discord.gg/sA4uezPKF",
+    Name = "Join Discord: https://discord.gg/sA4uezPKF",
     Callback = function()
        setclipboard("https://discord.gg/sA4uezPKF")
     end
@@ -68,7 +68,7 @@ AddButton(Tab1, {
 })
 
 AddButton(Tab1, {
-    Name = "Menu Farm lever",
+    Name = "CLICK ĐỂ MỞ: Menu Farm Lever",
     Description = "00",
     Callback = function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/farm/refs/heads/main/farmthanhtaiboss.lua"))()
