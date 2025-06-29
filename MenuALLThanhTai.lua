@@ -309,6 +309,16 @@ AddButton(Tab3, {
     end
 })
 
+-- Pvp menu dep
+AddButton(Tab3, {
+    Name = "PvP bản mới siêu gọn đẹp có killaura",
+    Description = "Kích hoạt chế độ PvP nâng cao 👹",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/pvpmoine/refs/heads/main/pvpmoi.lua"))()
+    end
+})
+
+
 -- TAB 4: Nhảy / Bay
 local Tab4 = MakeTab({ Name = "Nhảy / Bay" })
 
