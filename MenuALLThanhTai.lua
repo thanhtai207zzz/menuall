@@ -318,6 +318,15 @@ AddButton(Tab3, {
     end
 })
 
+-- Pvp kingmode
+AddButton(Tab3, {
+    Name = "PVP KINGMODE",
+    Description = "Kích hoạt chế độ PvP nâng cao 👹",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/ScripTEST/refs/heads/main/pvpmodeking.lua"))()
+    end
+})
+
 
 -- TAB 4: Nhảy / Bay
 local Tab4 = MakeTab({ Name = "Nhảy / Bay" })
