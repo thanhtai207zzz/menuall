@@ -75,6 +75,16 @@ AddButton(Tab1, {
     end
 })
 
+
+AddButton(Tab1, {
+    Name = "CLICK ĐỂ MỞ: Menu PVP | Farm Lever",
+    Description = "00",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/thanhtai207zzz/danhnhanhvl/refs/heads/main/DANHNHAU.lua"))()
+    end
+})
+
+
 -- Auto Collect Drop
 AddToggle(Tab1, {
     Name = "Auto Nhặt Vật Phẩm Drop",
